@@ -544,20 +544,27 @@ export default function Home() {
           gap: '1.25rem',
           marginBottom: '0.25rem'
         }}>
-          {/* TAMI Logo - Larger for more prominence */}
-          <img
-            src="/tami-logo.png"
-            alt="TAMI Logo"
-            style={{
-              width: '120px',
-              height: '120px',
-              borderRadius: '50%',
-              boxShadow: '0 4px 16px rgba(33, 150, 243, 0.4)',
-              transform: 'scale(1.4)',
-              objectFit: 'cover',
-              objectPosition: 'center center'
-            }}
-          />
+          {/* TAMI Logo - Container with overflow to crop padding */}
+          <div style={{
+            width: '100px',
+            height: '100px',
+            borderRadius: '50%',
+            overflow: 'hidden',
+            boxShadow: '0 4px 16px rgba(33, 150, 243, 0.4)',
+            flexShrink: 0
+          }}>
+            <img
+              src="/tami-logo.png"
+              alt="TAMI Logo"
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                transform: 'scale(1.5)',
+                transformOrigin: 'center center'
+              }}
+            />
+          </div>
 
           {/* Title and Subtitle Container */}
           <div style={{ textAlign: 'left' }}>
