@@ -1,7 +1,10 @@
 .card {
-    background: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    /* Glassmorphism effect */
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
     padding: 1rem;
     margin-bottom: 0.75rem;
     position: relative;
@@ -12,11 +15,19 @@
 
     /* Smooth transitions */
     transition: all var(--animation-duration-normal) var(--animation-easing);
+
+    /* Enhanced shadow for depth */
+    box-shadow:
+        0 8px 32px rgba(31, 38, 135, 0.15),
+        inset 0 1px 1px rgba(255, 255, 255, 0.6);
 }
 
 .card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    border-color: #bbb;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow:
+        0 12px 40px rgba(31, 38, 135, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.8);
+    border-color: rgba(255, 255, 255, 0.6);
     transform: translateY(-4px);
 }
 
