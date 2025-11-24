@@ -98,10 +98,7 @@ export default function TaskCard({ task, onToggleComplete, onEdit, onDelete, onC
                         </div>
                     )}
 
-                    {task.suggested_due_date && (
-                        <span className={styles.time}>{task.suggested_due_date}</span>
-                    )}
-
+                    {/* Actions - Calendar, Edit, Delete */}
                     <div className={styles.actions}>
                         <button
                             onClick={() => {
