@@ -4,19 +4,41 @@
     border-radius: 8px;
     padding: 1rem;
     margin-bottom: 0.75rem;
-    transition: all 0.2s ease;
     position: relative;
     min-height: 80px;
+
+    /* Entrance animation */
+    animation: slideUp var(--animation-duration-normal) var(--animation-easing) backwards;
+
+    /* Smooth transitions */
+    transition: all var(--animation-duration-normal) var(--animation-easing);
 }
 
 .card:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-color: #ccc;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: #bbb;
+    transform: translateY(-4px);
 }
 
 .card.completed {
     opacity: 0.6;
     background: #f9f9f9;
+    transition: opacity var(--animation-duration-slow) var(--animation-easing);
+}
+
+.card.completed .content {
+    text-decoration: line-through;
+    animation: strikethrough var(--animation-duration-slow) var(--animation-easing) forwards;
+}
+
+@keyframes strikethrough {
+    from {
+        text-decoration-color: transparent;
+    }
+
+    to {
+        text-decoration-color: currentColor;
+    }
 }
 
 .card.priorityHigh {
@@ -42,6 +64,31 @@
     width: 18px;
     height: 18px;
     cursor: pointer;
+    transition: transform var(--animation-duration-fast) var(--animation-easing-bounce);
+}
+
+.checkbox input[type="checkbox"]:hover {
+    transform: scale(1.2);
+}
+
+.checkbox input[type="checkbox"]:active {
+    transform: scale(0.9);
+}
+
+.checkbox input[type="checkbox"]:checked {
+    animation: checkBounce var(--animation-duration-normal) var(--animation-easing-bounce);
+}
+
+@keyframes checkBounce {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
 }
 
 .mainContent {
@@ -248,23 +295,36 @@
 }
 
 .card:hover .actions {
-    opacity: 1;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
 }
 
-.editBtn,
-.deleteBtn,
-.calendarBtn {
+.actionBtn {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 1rem;
-    padding: 0.25rem;
+    font-size: 1.1rem;
+    padding: 0.4rem;
     border-radius: 4px;
-    transition: background 0.2s;
+    position: relative;
+    overflow: hidden;
+
+    /* Smooth transitions */
+    transition: all var(--animation-duration-fast) var(--animation-easing);
     line-height: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.actionBtn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: scale(1.15) rotate(5deg);
+}
+
+.actionBtn:active {
+    transform: scale(0.95);
 }
 
 .calendarBtn:hover {
@@ -336,6 +396,46 @@
 .confirmNo {
     background: #e0e0e0;
     color: #333;
+}
+
+/* Drag and Drop Animations */
+.card[data-dragging="true"] {
+    opacity: 0.5;
+    transform: rotate(3deg) scale(1.05);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    cursor: grabbing;
+    transition: all var(--animation-duration-fast) var(--animation-easing);
+}
+
+.card[data-drag-over="true"] {
+    border-color: #2196F3;
+    background: rgba(33, 150, 243, 0.05);
+    transform: scale(1.02);
+}
+
+/* Stagger animation for list items */
+.card:nth-child(1) {
+    animation-delay: 0ms;
+}
+
+.card:nth-child(2) {
+    animation-delay: 50ms;
+}
+
+.card:nth-child(3) {
+    animation-delay: 100ms;
+}
+
+.card:nth-child(4) {
+    animation-delay: 150ms;
+}
+
+.card:nth-child(5) {
+    animation-delay: 200ms;
+}
+
+.card:nth-child(n+6) {
+    animation-delay: 250ms;
 }
 
 .confirmNo:hover {
