@@ -41,8 +41,19 @@ export default function TaskCard({ task, onToggleComplete, onEdit, onDelete, onC
                 task.priority === 'low' ? styles.priorityLow :
                     styles.priorityMedium
             }`}>
-            {/* Metadata row in top right */}
+            {/* Metadata row with checkbox and icons */}
             <div className={styles.metaRow}>
+                {/* Checkbox on the left */}
+                <div className={styles.checkbox}>
+                    <input
+                        type="checkbox"
+                        checked={isCompleted}
+                        onChange={(e) => onToggleComplete(task.id, e.target.checked)}
+                        title={isCompleted ? "Mark as incomplete" : "Mark as complete"}
+                    />
+                </div>
+
+                {/* Icons on the right */}
                 <div className={styles.metaLeft}>
                     {task.priority && (
                         <div style={{ position: 'relative', display: 'inline-block' }}>
@@ -86,9 +97,11 @@ export default function TaskCard({ task, onToggleComplete, onEdit, onDelete, onC
                             )}
                         </div>
                     )}
-                </div>
 
-                {!isEditing && (
+                    {task.suggested_due_date && (
+                        <span className={styles.time}>{task.suggested_due_date}</span>
+                    )}
+
                     <div className={styles.actions}>
                         <button
                             onClick={() => {
@@ -115,20 +128,11 @@ export default function TaskCard({ task, onToggleComplete, onEdit, onDelete, onC
                             🗑️
                         </button>
                     </div>
-                )}
+                </div>
             </div>
 
-            {/* Checkbox and content */}
+            {/* Content */}
             <div className={styles.mainContent}>
-                <div className={styles.checkbox}>
-                    <input
-                        type="checkbox"
-                        checked={isCompleted}
-                        onChange={(e) => onToggleComplete(task.id, e.target.checked)}
-                        title={isCompleted ? "Mark as incomplete" : "Mark as complete"}
-                    />
-                </div>
-
                 <div className={styles.content}>
                     {isEditing ? (
                         <div className={styles.editMode}>

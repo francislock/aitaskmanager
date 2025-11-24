@@ -35,7 +35,6 @@
 }
 
 .checkbox {
-    padding-top: 0.25rem;
     flex-shrink: 0;
 }
 
@@ -47,18 +46,9 @@
 
 .mainContent {
     display: flex;
-    gap: 0.75rem;
+    flex-direction: column;
     flex: 1;
     min-width: 0;
-    padding-right: 200px;
-}
-
-/* Mobile responsive */
-@media (max-width: 768px) {
-    .mainContent {
-        padding-right: 0;
-        flex-direction: column;
-    }
 }
 
 .content {
@@ -132,21 +122,18 @@
 }
 
 .metaRow {
-    position: absolute;
-    top: 0.75rem;
-    right: 0.75rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: space-between;
+    gap: 0.75rem;
     font-size: 0.8rem;
+    margin-bottom: 0.75rem;
 }
 
-/* Mobile: Stack metadata below content */
+/* Mobile: Keep same layout */
 @media (max-width: 768px) {
     .metaRow {
-        position: static;
-        margin-top: 0.75rem;
-        justify-content: flex-end;
+        margin-bottom: 0.5rem;
     }
 }
 
