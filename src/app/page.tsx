@@ -536,8 +536,27 @@ export default function Home() {
   return (
     <main style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
       <header style={{ marginBottom: '3rem', textAlign: 'center' }}>
-        <h1 style={{ fontSize: '2.5rem', marginBottom: '0.5rem' }}>AI Task Manager</h1>
-        <p style={{ color: '#666' }}>Voice-First Intelligent Organization</p>
+        <h1 style={{
+          fontSize: '3rem',
+          marginBottom: '0.25rem',
+          fontFamily: 'var(--font-poppins), sans-serif',
+          fontWeight: '700',
+          background: 'linear-gradient(135deg, #2196F3 0%, #9C27B0 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
+          letterSpacing: '0.02em'
+        }}>
+          TAMI
+        </h1>
+        <p style={{
+          color: '#666',
+          fontSize: '0.95rem',
+          fontFamily: 'var(--font-inter), sans-serif',
+          fontWeight: '400'
+        }}>
+          Your AI Task Assistant
+        </p>
         {debugError && (
           <div style={{ color: 'red', marginTop: '1rem', padding: '1rem', border: '1px solid red' }}>
             Error: {debugError}

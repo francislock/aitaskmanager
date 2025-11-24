@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
+import { Inter, Poppins } from 'next/font/google';
 import "./globals.css";
 
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const poppins = Poppins({
+  weight: ['400', '600', '700'],
+  subsets: ['latin'],
+  variable: '--font-poppins'
+});
+
 export const metadata: Metadata = {
-  title: "AI Task Manager",
-  description: "Voice-first task management powered by AI",
+  title: "TAMI - Your AI Task Assistant",
+  description: "Voice-first intelligent task management powered by AI",
 };
 
 export default function RootLayout({
@@ -13,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${inter.variable} ${poppins.variable}`}>{children}</body>
     </html>
   );
 }
