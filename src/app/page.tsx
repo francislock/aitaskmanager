@@ -549,10 +549,12 @@ export default function Home() {
             src="/tami-logo.png"
             alt="TAMI Logo"
             style={{
-              width: '100px',
-              height: '100px',
+              width: '120px',
+              height: '120px',
               borderRadius: '50%',
-              boxShadow: '0 4px 16px rgba(33, 150, 243, 0.4)'
+              boxShadow: '0 4px 16px rgba(33, 150, 243, 0.4)',
+              transform: 'scale(1.15)',
+              objectFit: 'cover'
             }}
           />
 
