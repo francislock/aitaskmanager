@@ -53,6 +53,14 @@
     padding-right: 200px;
 }
 
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .mainContent {
+        padding-right: 0;
+        flex-direction: column;
+    }
+}
+
 .content {
     flex: 1;
     font-size: 1rem;
@@ -60,6 +68,14 @@
     min-width: 0;
     word-wrap: break-word;
     overflow-wrap: break-word;
+}
+
+/* Mobile: Better text sizing */
+@media (max-width: 768px) {
+    .content {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
 }
 
 .completedText {
@@ -123,6 +139,15 @@
     align-items: center;
     gap: 0.5rem;
     font-size: 0.8rem;
+}
+
+/* Mobile: Stack metadata below content */
+@media (max-width: 768px) {
+    .metaRow {
+        position: static;
+        margin-top: 0.75rem;
+        justify-content: flex-end;
+    }
 }
 
 .metaLeft {
