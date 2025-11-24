@@ -553,8 +553,9 @@ export default function Home() {
               height: '120px',
               borderRadius: '50%',
               boxShadow: '0 4px 16px rgba(33, 150, 243, 0.4)',
-              transform: 'scale(1.15)',
-              objectFit: 'cover'
+              transform: 'scale(1.4)',
+              objectFit: 'cover',
+              objectPosition: 'center center'
             }}
           />
 
