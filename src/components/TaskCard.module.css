@@ -1,0 +1,331 @@
+.card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    transition: all 0.2s ease;
+    position: relative;
+    min-height: 80px;
+}
+
+.card:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-color: #ccc;
+}
+
+.card.completed {
+    opacity: 0.6;
+    background: #f9f9f9;
+}
+
+.card.priorityHigh {
+    border-left: 4px solid #f44336;
+    background: #ffebee;
+}
+
+.card.priorityMedium {
+    border-left: 4px solid #ff9800;
+    background: #fff3e0;
+}
+
+.card.priorityLow {
+    border-left: 4px solid #4caf50;
+    background: #e8f5e9;
+}
+
+.checkbox {
+    padding-top: 0.25rem;
+    flex-shrink: 0;
+}
+
+.checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.mainContent {
+    display: flex;
+    gap: 0.75rem;
+    flex: 1;
+    min-width: 0;
+    padding-right: 200px;
+}
+
+.content {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.4;
+    min-width: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.completedText {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.editMode {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.editInput {
+    flex: 1;
+    padding: 0.5rem;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    outline: none;
+}
+
+.editActions {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.saveBtn,
+.cancelBtn {
+    padding: 0.5rem 0.75rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.saveBtn {
+    background: #4CAF50;
+    color: white;
+}
+
+.saveBtn:hover {
+    background: #45a049;
+}
+
+.cancelBtn {
+    background: #f44336;
+    color: white;
+}
+
+.cancelBtn:hover {
+    background: #da190b;
+}
+
+.metaRow {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.metaLeft {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: nowrap;
+}
+
+.meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.badge {
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+
+.work_projects {
+    background: #e3f2fd;
+    color: #1976d2;
+}
+
+.personal_home {
+    background: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.shopping {
+    background: #fff3e0;
+    color: #f57c00;
+}
+
+.quick_ideas {
+    background: #e8f5e9;
+    color: #388e3c;
+}
+
+.time {
+    color: #666;
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+.priority {
+    font-size: 1rem;
+}
+
+.priorityBadge {
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+    display: inline-block;
+    line-height: 1;
+}
+
+.priorityBadge:hover {
+    transform: scale(1.2);
+}
+
+.priorityPicker {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5rem;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    min-width: 120px;
+}
+
+.priorityOption {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: none;
+    background: white;
+    text-align: left;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background 0.2s;
+}
+
+.priorityOption:first-child {
+    border-radius: 8px 8px 0 0;
+}
+
+.priorityOption:last-child {
+    border-radius: 0 0 8px 8px;
+}
+
+.priorityOption:hover {
+    background: #f5f5f5;
+}
+
+.actions {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+}
+
+.card:hover .actions {
+    opacity: 1;
+}
+
+.editBtn,
+.deleteBtn,
+.calendarBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendarBtn:hover {
+    background: #e3f2fd;
+}
+
+.editBtn:hover {
+    background: #f0f0f0;
+}
+
+.deleteBtn:hover {
+    background: #ffebee;
+}
+
+.confirmOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.confirmDialog {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    text-align: center;
+}
+
+.confirmDialog p {
+    margin: 0 0 1.5rem 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.confirmActions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.confirmYes,
+.confirmNo {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.confirmYes {
+    background: #f44336;
+    color: white;
+}
+
+.confirmYes:hover {
+    background: #da190b;
+}
+
+.confirmNo {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.confirmNo:hover {
+    background: #d0d0d0;
+}

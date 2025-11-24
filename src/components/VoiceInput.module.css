@@ -1,0 +1,85 @@
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    position: relative;
+}
+
+.inputWrapper {
+    display: flex;
+    align-items: center;
+    background: var(--accent);
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.inputWrapper:focus-within,
+.inputWrapper.listening {
+    border-color: var(--primary);
+    box-shadow: 0 4px 20px rgba(0, 112, 243, 0.15);
+}
+
+.input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 0.8rem;
+    font-size: 1rem;
+    color: var(--foreground);
+    outline: none;
+}
+
+.micButton {
+    background: var(--primary);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.micButton:hover {
+    transform: scale(1.05);
+}
+
+.micButton.recording {
+    background: var(--error);
+}
+
+.pulseRing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    border: 2px solid var(--primary);
+    opacity: 0;
+    animation: ripple 1.5s infinite;
+    z-index: 1;
+}
+
+@keyframes ripple {
+    0% {
+        width: 100%;
+        height: 100%;
+        opacity: 0.5;
+    }
+
+    100% {
+        width: 110%;
+        height: 130%;
+        opacity: 0;
+    }
+}

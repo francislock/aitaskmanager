@@ -1,0 +1,63 @@
+.container {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    padding: 0.25rem 0;
+    transition: color 0.2s;
+}
+
+.header:hover {
+    color: #666;
+}
+
+.icon {
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #666;
+}
+
+.list {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.subtask {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background: #f9f9f9;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.subtask:hover {
+    background: #f0f0f0;
+}
+
+.checkbox {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: #999;
+}
