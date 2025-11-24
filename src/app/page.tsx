@@ -536,26 +536,51 @@ export default function Home() {
   return (
     <main style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
       <header style={{ marginBottom: '3rem', textAlign: 'center' }}>
-        <h1 style={{
-          fontSize: '3rem',
-          marginBottom: '0.25rem',
-          fontFamily: 'var(--font-poppins), sans-serif',
-          fontWeight: '700',
-          background: 'linear-gradient(135deg, #2196F3 0%, #9C27B0 100%)',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          backgroundClip: 'text',
-          letterSpacing: '0.02em'
+        {/* Logo and Title Row */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '1.5rem',
+          marginBottom: '0.5rem'
         }}>
-          TAMI
-        </h1>
+          {/* TAMI Logo */}
+          <img
+            src="/tami-logo.png"
+            alt="TAMI Logo"
+            style={{
+              width: '80px',
+              height: '80px',
+              borderRadius: '50%',
+              boxShadow: '0 4px 12px rgba(33, 150, 243, 0.3)'
+            }}
+          />
+
+          {/* AI Task Manager Title */}
+          <h1 style={{
+            fontSize: '2.5rem',
+            margin: 0,
+            fontFamily: 'var(--font-poppins), sans-serif',
+            fontWeight: '700',
+            background: 'linear-gradient(135deg, #2196F3 0%, #9C27B0 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+            letterSpacing: '0.02em'
+          }}>
+            AI Task Manager
+          </h1>
+        </div>
+
+        {/* Subtitle */}
         <p style={{
-          color: '#666',
-          fontSize: '0.95rem',
+          color: '#999',
+          fontSize: '0.85rem',
           fontFamily: 'var(--font-inter), sans-serif',
-          fontWeight: '400'
+          fontWeight: '400',
+          margin: 0
         }}>
-          Your AI Task Assistant
+          Voice-First Intelligent Organization
         </p>
         {debugError && (
           <div style={{ color: 'red', marginTop: '1rem', padding: '1rem', border: '1px solid red' }}>

@@ -12,6 +12,15 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "TAMI - Your AI Task Assistant",
   description: "Voice-first intelligent task management powered by AI",
+  icons: {
+    icon: '/favicon.png',
+    apple: '/tami-logo.png',
+  },
+  openGraph: {
+    title: "TAMI - Your AI Task Assistant",
+    description: "Voice-first intelligent task management powered by AI",
+    images: ['/tami-logo.png'],
+  },
 };
 
 export default function RootLayout({
