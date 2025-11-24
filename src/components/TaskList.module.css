@@ -1,5 +1,39 @@
 .container {
-    margin-bottom: 2rem;
+    margin-bottom: 0;
+    /* Handled by parent gap */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    /* Board View Width */
+    min-width: 320px;
+    max-width: 350px;
+    width: 350px;
+
+    /* Scroll Snap Alignment */
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+/* Override for List View (applied via parent class logic if needed, 
+   but since we use styles.listContainer in page.tsx, we can rely on 
+   global CSS or inline styles, OR we can make this responsive) 
+*/
+
+/* In List View context (vertical), we want full width */
+:global(.listContainer) .container {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+/* Mobile: Adjust width for carousel feel */
+@media (max-width: 768px) {
+    .container {
+        width: 85vw;
+        min-width: 85vw;
+        max-width: 85vw;
+    }
 }
 
 .title {

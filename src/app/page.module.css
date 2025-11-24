@@ -148,8 +148,135 @@ a.secondary {
   }
 }
 
-@media (max-width: 480px) {
-  .main {
-    padding: 0.75rem;
+/* Main Container */
+.mainContainer {
+  padding: 2rem;
+  width: 100%;
+  max-width: 1400px;
+  /* Increased for board view */
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Controls Row */
+.controlsRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* View Toggle Button */
+.viewToggle {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+.viewToggle:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Board View Container (Horizontal) */
+.boardContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 2rem;
+  align-items: flex-start;
+  min-height: 600px;
+
+  /* Scroll Snap for Mobile */
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  /* Hide scrollbar but keep functionality */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.boardContainer::-webkit-scrollbar {
+  height: 8px;
+}
+
+.boardContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.boardContainer::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+}
+
+/* List View Container (Vertical) */
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* List Content Wrapper */
+.listContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Create List Wrapper */
+.createListWrapper {
+  flex-shrink: 0;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+  scroll-snap-align: center;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .mainContainer {
+    padding: 1rem;
+  }
+
+  .boardContainer {
+    gap: 1rem;
+    padding-right: 1rem;
+    /* Space for last item */
+  }
+
+  .controlsRow {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+
+  .viewToggle {
+    position: absolute;
+    top: -60px;
+    right: 0;
   }
 }

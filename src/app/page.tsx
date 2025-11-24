@@ -11,14 +11,31 @@ import CreateListButton from '@/components/CreateListButton';
 import DraggableList from '@/components/DraggableList';
 import DraggableTask from '@/components/DraggableTask';
 import DroppableList from '@/components/DroppableList';
+
 import { DndContext, closestCenter, DragEndEvent, DragOverEvent, pointerWithin, useDroppable } from '@dnd-kit/core';
-import { SortableContext, verticalListSortingStrategy, arrayMove } from '@dnd-kit/sortable';
+import { SortableContext, verticalListSortingStrategy, horizontalListSortingStrategy, arrayMove } from '@dnd-kit/sortable';
+import styles from './page.module.css';
 
 export default function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [lists, setLists] = useState<List[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [lists, setLists] = useState<List[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const [debugError, setDebugError] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<'board' | 'list'>('board');
+
+  // Load view preference
+  useEffect(() => {
+    const savedView = localStorage.getItem('viewMode') as 'board' | 'list';
+    if (savedView) setViewMode(savedView);
+  }, []);
+
+  const toggleViewMode = () => {
+    const newMode = viewMode === 'board' ? 'list' : 'board';
+    setViewMode(newMode);
+    localStorage.setItem('viewMode', newMode);
+  };
 
   // Fetch lists and tasks on load
   useEffect(() => {
@@ -534,8 +551,8 @@ export default function Home() {
   };
 
   return (
-    <main style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
-      <header style={{ marginBottom: '3rem', textAlign: 'center' }}>
+    <main className={styles.mainContainer}>
+      <header style={{ marginBottom: '2rem', textAlign: 'center' }}>
         {/* Logo and Title Row */}
         <div style={{
           display: 'flex',
@@ -605,7 +622,20 @@ export default function Home() {
         )}
       </header>
 
-      <VoiceInput onCommand={handleCommand} isProcessing={isProcessing} />
+
+
+      {/* View Toggle & Voice Input Row */}
+      <div className={styles.controlsRow}>
+        <VoiceInput onCommand={handleCommand} isProcessing={isProcessing} />
+
+        <button
+          onClick={toggleViewMode}
+          className={styles.viewToggle}
+          title={viewMode === 'board' ? "Switch to List View" : "Switch to Board View"}
+        >
+          {viewMode === 'board' ? '📋' : '📊'}
+        </button>
+      </div>
 
       <DndContext
         collisionDetection={closestCenter}
@@ -613,12 +643,12 @@ export default function Home() {
       >
         <SortableContext
           items={lists.map(l => l.id)}
-          strategy={verticalListSortingStrategy}
+          strategy={viewMode === 'board' ? horizontalListSortingStrategy : verticalListSortingStrategy}
         >
-          <div style={{ display: 'grid', gap: '2rem' }}>
+          <div className={viewMode === 'board' ? styles.boardContainer : styles.listContainer}>
             {lists.map(list => (
               <DraggableList key={list.id} list={list}>
-                <div>
+                <div className={styles.listContent}>
                   <ListHeader
                     list={list}
                     taskCount={getTasksByListId(list.id).length}
@@ -639,10 +669,12 @@ export default function Home() {
               </DraggableList>
             ))}
 
-            <CreateListButton onCreate={handleCreateList} />
+            <div className={styles.createListWrapper}>
+              <CreateListButton onCreate={handleCreateList} />
+            </div>
           </div>
         </SortableContext>
       </DndContext>
-    </main>
+    </main >
   );
 }
