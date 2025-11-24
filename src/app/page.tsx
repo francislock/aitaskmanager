@@ -19,8 +19,7 @@ import styles from './page.module.css';
 export default function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [lists, setLists] = useState<List[]>([]);
-  const [tasks, setTasks] = useState<Task[]>([]);
-  const [lists, setLists] = useState<List[]>([]);
+
   const [isProcessing, setIsProcessing] = useState(false);
   const [debugError, setDebugError] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'board' | 'list'>('board');
@@ -633,8 +632,33 @@ export default function Home() {
           className={styles.viewToggle}
           title={viewMode === 'board' ? "Switch to List View" : "Switch to Board View"}
         >
-          {viewMode === 'board' ? '📋' : '📊'}
+          {viewMode === 'board' ? (
+            /* List Icon (to switch to list view) */
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 6H21M8 12H21M8 18H21M3 6H3.01M3 12H3.01M3 18H3.01" stroke="url(#paint0_linear_list)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              <defs>
+                <linearGradient id="paint0_linear_list" x1="3" y1="12" x2="21" y2="12" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#2196F3" />
+                  <stop offset="1" stopColor="#9C27B0" />
+                </linearGradient>
+              </defs>
+            </svg>
+          ) : (
+            /* Board Icon (to switch to board view) */
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="3" width="20" height="14" rx="2" stroke="url(#paint0_linear_board)" strokeWidth="2.5" />
+              <path d="M8 21H16M12 17V21" stroke="url(#paint0_linear_board)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              <defs>
+                <linearGradient id="paint0_linear_board" x1="2" y1="12" x2="22" y2="12" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#2196F3" />
+                  <stop offset="1" stopColor="#9C27B0" />
+                </linearGradient>
+              </defs>
+            </svg>
+          )}
         </button>
+
+        <CreateListButton onCreate={handleCreateList} variant="minimal" />
       </div>
 
       <DndContext
@@ -669,9 +693,7 @@ export default function Home() {
               </DraggableList>
             ))}
 
-            <div className={styles.createListWrapper}>
-              <CreateListButton onCreate={handleCreateList} />
-            </div>
+
           </div>
         </SortableContext>
       </DndContext>

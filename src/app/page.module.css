@@ -168,9 +168,12 @@ a.secondary {
   gap: 1rem;
   margin-bottom: 2rem;
   position: relative;
+  width: 100%;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  height: 60px;
+  /* Fixed height for alignment */
 }
 
 /* View Toggle Button */
@@ -204,7 +207,8 @@ a.secondary {
   flex-direction: row;
   gap: 1.5rem;
   overflow-x: auto;
-  padding-bottom: 2rem;
+  padding: 0 2rem 2rem 2rem;
+  /* Top, Right, Bottom, Left */
   align-items: flex-start;
   min-height: 600px;
 

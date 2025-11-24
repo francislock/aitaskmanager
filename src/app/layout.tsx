@@ -13,7 +13,8 @@ export const metadata: Metadata = {
   title: "TAMI - Your AI Task Assistant",
   description: "Voice-first intelligent task management powered by AI",
   icons: {
-    icon: '/favicon.png',
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
     apple: '/tami-logo.png',
   },
   openGraph: {

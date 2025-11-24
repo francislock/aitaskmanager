@@ -1,6 +1,11 @@
 .container {
     position: relative;
     margin-bottom: 2rem;
+
+    /* Board View Width */
+    min-width: 800px !important;
+    width: 800px !important;
+    flex-shrink: 0 !important;
 }
 
 .dragHandle {

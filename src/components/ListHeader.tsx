@@ -81,13 +81,16 @@ export default function ListHeader({ list, taskCount, onEdit, onDelete }: ListHe
                         className={styles.nameInput}
                     />
                 ) : (
-                    <h2
-                        className={styles.name}
-                        onClick={() => setIsEditingName(true)}
-                        title="Click to edit name"
-                    >
-                        {list.name}
-                    </h2>
+                    <div className={styles.nameWrapper}>
+                        <h2
+                            className={styles.name}
+                            onClick={() => setIsEditingName(true)}
+                            title="Click to edit name"
+                        >
+                            {list.name}
+                        </h2>
+                        <span className={styles.taskCount}>{taskCount}</span>
+                    </div>
                 )}
             </div>
 
