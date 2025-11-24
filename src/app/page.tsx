@@ -541,47 +541,53 @@ export default function Home() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          gap: '1.5rem',
-          marginBottom: '0.5rem'
+          gap: '1.25rem',
+          marginBottom: '0.25rem'
         }}>
-          {/* TAMI Logo */}
+          {/* TAMI Logo - Larger for more prominence */}
           <img
             src="/tami-logo.png"
             alt="TAMI Logo"
             style={{
-              width: '80px',
-              height: '80px',
+              width: '100px',
+              height: '100px',
               borderRadius: '50%',
-              boxShadow: '0 4px 12px rgba(33, 150, 243, 0.3)'
+              boxShadow: '0 4px 16px rgba(33, 150, 243, 0.4)'
             }}
           />
 
-          {/* AI Task Manager Title */}
-          <h1 style={{
-            fontSize: '2.5rem',
-            margin: 0,
-            fontFamily: 'var(--font-poppins), sans-serif',
-            fontWeight: '700',
-            background: 'linear-gradient(135deg, #2196F3 0%, #9C27B0 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            letterSpacing: '0.02em'
-          }}>
-            AI Task Manager
-          </h1>
-        </div>
+          {/* Title and Subtitle Container */}
+          <div style={{ textAlign: 'left' }}>
+            {/* AI Task Manager Title - Smaller */}
+            <h1 style={{
+              fontSize: '2rem',
+              margin: 0,
+              marginBottom: '0.15rem',
+              fontFamily: 'var(--font-poppins), sans-serif',
+              fontWeight: '700',
+              background: 'linear-gradient(135deg, #2196F3 0%, #9C27B0 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              letterSpacing: '0.02em',
+              lineHeight: '1.2'
+            }}>
+              AI Task Manager
+            </h1>
 
-        {/* Subtitle */}
-        <p style={{
-          color: '#999',
-          fontSize: '0.85rem',
-          fontFamily: 'var(--font-inter), sans-serif',
-          fontWeight: '400',
-          margin: 0
-        }}>
-          Voice-First Intelligent Organization
-        </p>
+            {/* Subtitle - Aligned with title */}
+            <p style={{
+              color: '#999',
+              fontSize: '0.8rem',
+              fontFamily: 'var(--font-inter), sans-serif',
+              fontWeight: '400',
+              margin: 0,
+              lineHeight: '1.3'
+            }}>
+              Voice-First Intelligent Organization
+            </p>
+          </div>
+        </div>
         {debugError && (
           <div style={{ color: 'red', marginTop: '1rem', padding: '1rem', border: '1px solid red' }}>
             Error: {debugError}
