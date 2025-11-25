@@ -2,10 +2,11 @@
     position: relative;
     margin-bottom: 2rem;
 
-    /* Board View Width */
-    min-width: 800px !important;
-    width: 800px !important;
-    flex-shrink: 0 !important;
+    /* Board View Width - Fluid */
+    min-width: 400px;
+    flex: 1 0 auto;
+    max-width: 800px;
+    /* Optional: keep a reasonable max width per list so they don't get absurdly wide on huge screens, or remove for true full width */
 }
 
 .dragHandle {

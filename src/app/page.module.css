@@ -152,7 +152,7 @@ a.secondary {
 .mainContainer {
   padding: 2rem;
   width: 100%;
-  max-width: 1400px;
+  max-width: 100%;
   /* Increased for board view */
   margin: 0 auto;
   min-height: 100vh;
