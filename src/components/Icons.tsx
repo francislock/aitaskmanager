@@ -7,15 +7,9 @@ interface IconProps {
 
 export const MicrophoneIcon: React.FC<IconProps> = ({ size = 24, className }) => (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className}>
-        <defs>
-            <linearGradient id="micGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#2196F3" />
-                <stop offset="100%" stopColor="#9C27B0" />
-            </linearGradient>
-        </defs>
-        <path d="M12 14C13.66 14 15 12.66 15 11V5C15 3.34 13.66 2 12 2C10.34 2 9 3.34 9 5V11C9 12.66 10.34 14 12 14Z" stroke="url(#micGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M19 11C19 14.866 15.866 18 12 18C8.13401 18 5 14.866 5 11" stroke="url(#micGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        <path d="M12 18V22M12 22H8M12 22H16" stroke="url(#micGradient)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M12 14C13.66 14 15 12.66 15 11V5C15 3.34 13.66 2 12 2C10.34 2 9 3.34 9 5V11C9 12.66 10.34 14 12 14Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M19 11C19 14.866 15.866 18 12 18C8.13401 18 5 14.866 5 11" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M12 18V22M12 22H8M12 22H16" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
 );
 
