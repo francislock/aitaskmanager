@@ -26,8 +26,18 @@ export default function Home() {
 
   // Load view preference
   useEffect(() => {
-    const savedView = localStorage.getItem('viewMode') as 'board' | 'list';
-    if (savedView) setViewMode(savedView);
+    // Check if mobile
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      // Force list view on mobile
+      setViewMode('list');
+      localStorage.setItem('viewMode', 'list');
+    } else {
+      // Use saved preference on desktop
+      const savedView = localStorage.getItem('viewMode') as 'board' | 'list';
+      if (savedView) setViewMode(savedView);
+    }
   }, []);
 
   const toggleViewMode = () => {

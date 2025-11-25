@@ -274,13 +274,13 @@ a.secondary {
   }
 
   .controlsRow {
-    flex-direction: column-reverse;
-    gap: 1rem;
+    flex-direction: row;
+    gap: 0.5rem;
+    max-width: 100%;
+    height: auto;
   }
 
   .viewToggle {
-    position: absolute;
-    top: -60px;
-    right: 0;
+    flex-shrink: 0;
   }
 }
