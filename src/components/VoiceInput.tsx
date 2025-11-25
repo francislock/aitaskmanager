@@ -2,6 +2,7 @@
 
 import { useState, useEffect, KeyboardEvent, useRef } from 'react';
 import styles from './VoiceInput.module.css';
+import { MicrophoneIcon, SendIcon } from './Icons';
 
 interface VoiceInputProps {
     onCommand: (command: string) => void;
@@ -86,7 +87,13 @@ export default function VoiceInput({ onCommand, isProcessing }: VoiceInputProps)
                 disabled={isProcessing}
                 title={input ? "Send Command" : "Start Listening"}
             >
-                {isProcessing ? '...' : (input && !isListening ? '➤' : '🎤')}
+                {isProcessing ? (
+                    <span style={{ fontSize: '0.8rem' }}>...</span>
+                ) : input && !isListening ? (
+                    <SendIcon size={20} />
+                ) : (
+                    <MicrophoneIcon size={24} />
+                )}
             </button>
             {isListening && <div className={styles.pulseRing}></div>}
         </div>

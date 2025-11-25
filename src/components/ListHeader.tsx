@@ -3,6 +3,7 @@
 import { List } from '@/types';
 import { useState } from 'react';
 import styles from './ListHeader.module.css';
+import { DeleteIcon } from './Icons';
 
 interface ListHeaderProps {
     list: List;
@@ -101,7 +102,7 @@ export default function ListHeader({ list, taskCount, onEdit, onDelete }: ListHe
                     className={styles.deleteBtn}
                     title="Delete list"
                 >
-                    🗑️
+                    <DeleteIcon size={18} />
                 </button>
             )}
         </div>

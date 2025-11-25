@@ -5,6 +5,7 @@ import styles from './TaskCard.module.css';
 import { useState } from 'react';
 import SubtaskList from './SubtaskList';
 import { generateGoogleCalendarUrl } from '@/lib/calendar';
+import { CalendarIcon, EditIcon, DeleteIcon } from './Icons';
 
 interface TaskCardProps {
     task: Task;
@@ -108,21 +109,21 @@ export default function TaskCard({ task, onToggleComplete, onEdit, onDelete, onC
                             className={styles.calendarBtn}
                             title="Add to Google Calendar"
                         >
-                            📅
+                            <CalendarIcon size={18} />
                         </button>
                         <button
                             onClick={() => setIsEditing(true)}
                             className={styles.editBtn}
                             title="Edit task"
                         >
-                            ✏️
+                            <EditIcon size={18} />
                         </button>
                         <button
                             onClick={() => setShowDeleteConfirm(true)}
                             className={styles.deleteBtn}
                             title="Delete task"
                         >
-                            🗑️
+                            <DeleteIcon size={18} />
                         </button>
                     </div>
                 </div>
