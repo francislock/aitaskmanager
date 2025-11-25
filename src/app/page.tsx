@@ -301,6 +301,81 @@ export default function Home() {
     }
   };
 
+  const handleSubtaskAdd = async (taskId: string, content: string) => {
+    try {
+      // Get the current task to determine the next order_index
+      const task = tasks.find(t => t.id === taskId);
+      const nextOrderIndex = task?.subtasks ? task.subtasks.length : 0;
+
+      const { data, error } = await supabase
+        .from('subtasks')
+        .insert({
+          parent_task_id: taskId,
+          content,
+          status: 'pending',
+          order_index: nextOrderIndex
+        })
+        .select()
+        .single();
+
+      if (error) throw error;
+
+      // Update local state
+      if (data) {
+        setTasks(prev => prev.map(t =>
+          t.id === taskId
+            ? { ...t, subtasks: [...(t.subtasks || []), data] }
+            : t
+        ));
+      }
+    } catch (error: any) {
+      console.error("Add Subtask Error:", error);
+      setDebugError(error.message);
+    }
+  };
+
+  const handleSubtaskEdit = async (subtaskId: string, content: string) => {
+    try {
+      const { error } = await supabase
+        .from('subtasks')
+        .update({ content })
+        .eq('id', subtaskId);
+
+      if (error) throw error;
+
+      // Update local state
+      setTasks(prev => prev.map(task => ({
+        ...task,
+        subtasks: task.subtasks?.map(st =>
+          st.id === subtaskId ? { ...st, content } : st
+        )
+      })));
+    } catch (error: any) {
+      console.error("Edit Subtask Error:", error);
+      setDebugError(error.message);
+    }
+  };
+
+  const handleSubtaskDelete = async (subtaskId: string) => {
+    try {
+      const { error } = await supabase
+        .from('subtasks')
+        .delete()
+        .eq('id', subtaskId);
+
+      if (error) throw error;
+
+      // Update local state
+      setTasks(prev => prev.map(task => ({
+        ...task,
+        subtasks: task.subtasks?.filter(st => st.id !== subtaskId)
+      })));
+    } catch (error: any) {
+      console.error("Delete Subtask Error:", error);
+      setDebugError(error.message);
+    }
+  };
+
   // List Management Handlers
   const handleCreateList = async (name: string, emoji: string) => {
     try {
@@ -698,6 +773,9 @@ export default function Home() {
                     onDelete={handleDeleteTask}
                     onChangePriority={handleChangePriority}
                     onSubtaskToggle={handleSubtaskToggle}
+                    onSubtaskAdd={handleSubtaskAdd}
+                    onSubtaskEdit={handleSubtaskEdit}
+                    onSubtaskDelete={handleSubtaskDelete}
                   />
                 </div>
               </DraggableList>

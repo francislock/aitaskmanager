@@ -27,6 +27,31 @@
     font-size: 0.85rem;
     font-weight: 500;
     color: #666;
+    flex: 1;
+}
+
+/* Add Button */
+.addButton {
+    background: linear-gradient(135deg, #2196F3 0%, #9C27B0 100%);
+    color: white;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    transition: all 0.2s ease;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.addButton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3);
 }
 
 .list {
@@ -45,6 +70,7 @@
     border-radius: 4px;
     font-size: 0.9rem;
     transition: background 0.2s;
+    position: relative;
 }
 
 .subtask:hover {
@@ -55,9 +81,106 @@
     width: 16px;
     height: 16px;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .completed {
     text-decoration: line-through;
     color: #999;
+}
+
+/* Action Buttons (Edit/Delete) */
+.actions {
+    display: flex;
+    gap: 0.25rem;
+    margin-left: auto;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+.actionBtn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.actionBtn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    transform: scale(1.1);
+}
+
+/* Edit Mode */
+.editInput {
+    flex: 1;
+    border: 1px solid #2196F3;
+    background: white;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.editInput:focus {
+    box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+}
+
+.editActions {
+    display: flex;
+    gap: 0.25rem;
+    flex-shrink: 0;
+}
+
+.saveBtn,
+.cancelBtn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    line-height: 1;
+    transition: all 0.2s ease;
+}
+
+.saveBtn {
+    color: #4CAF50;
+}
+
+.saveBtn:hover {
+    background: rgba(76, 175, 80, 0.1);
+    transform: scale(1.1);
+}
+
+.cancelBtn {
+    color: #f44336;
+}
+
+.cancelBtn:hover {
+    background: rgba(244, 67, 54, 0.1);
+    transform: scale(1.1);
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .addButton {
+        width: 24px;
+        height: 24px;
+        font-size: 1.1rem;
+    }
+
+    .actions {
+        opacity: 1;
+        /* Always visible on mobile */
+    }
+
+    .actionBtn {
+        padding: 0.4rem;
+    }
 }

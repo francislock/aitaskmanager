@@ -14,9 +14,22 @@ interface TaskCardProps {
     onDelete: (taskId: string) => void;
     onChangePriority: (taskId: string, priority: 'high' | 'medium' | 'low') => void;
     onSubtaskToggle: (subtaskId: string, completed: boolean) => void;
+    onSubtaskAdd?: (taskId: string, content: string) => void;
+    onSubtaskEdit?: (subtaskId: string, content: string) => void;
+    onSubtaskDelete?: (subtaskId: string) => void;
 }
 
-export default function TaskCard({ task, onToggleComplete, onEdit, onDelete, onChangePriority, onSubtaskToggle }: TaskCardProps) {
+export default function TaskCard({
+    task,
+    onToggleComplete,
+    onEdit,
+    onDelete,
+    onChangePriority,
+    onSubtaskToggle,
+    onSubtaskAdd,
+    onSubtaskEdit,
+    onSubtaskDelete
+}: TaskCardProps) {
     const [isEditing, setIsEditing] = useState(false);
     const [editContent, setEditContent] = useState(task.content);
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
@@ -162,6 +175,9 @@ export default function TaskCard({ task, onToggleComplete, onEdit, onDelete, onC
                 taskId={task.id}
                 subtasks={task.subtasks || []}
                 onSubtaskToggle={onSubtaskToggle}
+                onSubtaskAdd={onSubtaskAdd}
+                onSubtaskEdit={onSubtaskEdit}
+                onSubtaskDelete={onSubtaskDelete}
             />
 
             {showDeleteConfirm && (

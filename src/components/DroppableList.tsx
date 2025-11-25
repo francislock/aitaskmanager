@@ -13,6 +13,9 @@ interface DroppableListProps {
     onDelete: (taskId: string) => void;
     onChangePriority: (taskId: string, priority: 'high' | 'medium' | 'low') => void;
     onSubtaskToggle: (subtaskId: string, completed: boolean) => void;
+    onSubtaskAdd?: (taskId: string, content: string) => void;
+    onSubtaskEdit?: (subtaskId: string, content: string) => void;
+    onSubtaskDelete?: (subtaskId: string) => void;
 }
 
 export default function DroppableList({
@@ -23,6 +26,9 @@ export default function DroppableList({
     onDelete,
     onChangePriority,
     onSubtaskToggle,
+    onSubtaskAdd,
+    onSubtaskEdit,
+    onSubtaskDelete,
 }: DroppableListProps) {
     const { setNodeRef } = useDroppable({
         id: `droppable-${listId}`,
@@ -48,6 +54,9 @@ export default function DroppableList({
                             onDelete={onDelete}
                             onChangePriority={onChangePriority}
                             onSubtaskToggle={onSubtaskToggle}
+                            onSubtaskAdd={onSubtaskAdd}
+                            onSubtaskEdit={onSubtaskEdit}
+                            onSubtaskDelete={onSubtaskDelete}
                         />
                     ))
                 )}

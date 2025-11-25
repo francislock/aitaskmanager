@@ -13,6 +13,9 @@ interface DraggableTaskProps {
     onDelete: (taskId: string) => void;
     onChangePriority: (taskId: string, priority: 'high' | 'medium' | 'low') => void;
     onSubtaskToggle: (subtaskId: string, completed: boolean) => void;
+    onSubtaskAdd?: (taskId: string, content: string) => void;
+    onSubtaskEdit?: (subtaskId: string, content: string) => void;
+    onSubtaskDelete?: (subtaskId: string) => void;
 }
 
 export default function DraggableTask({
@@ -22,6 +25,9 @@ export default function DraggableTask({
     onDelete,
     onChangePriority,
     onSubtaskToggle,
+    onSubtaskAdd,
+    onSubtaskEdit,
+    onSubtaskDelete,
 }: DraggableTaskProps) {
     const {
         attributes,
@@ -53,6 +59,9 @@ export default function DraggableTask({
                     onDelete={onDelete}
                     onChangePriority={onChangePriority}
                     onSubtaskToggle={onSubtaskToggle}
+                    onSubtaskAdd={onSubtaskAdd}
+                    onSubtaskEdit={onSubtaskEdit}
+                    onSubtaskDelete={onSubtaskDelete}
                 />
             </div>
         </div>
