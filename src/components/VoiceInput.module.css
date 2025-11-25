@@ -125,6 +125,9 @@
     .micButton {
         width: 48px;
         height: 48px;
+        min-width: 48px;
+        min-height: 48px;
         font-size: 1.2rem;
+        flex-shrink: 0;
     }
 }
