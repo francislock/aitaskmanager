@@ -264,7 +264,7 @@ a.secondary {
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .mainContainer {
-    padding: 1rem;
+    padding: 1rem 0.75rem;
   }
 
   .boardContainer {
@@ -278,9 +278,13 @@ a.secondary {
     gap: 0.5rem;
     max-width: 100%;
     height: auto;
+    padding: 0 0.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .viewToggle {
     flex-shrink: 0;
+    width: 44px;
+    height: 44px;
   }
 }

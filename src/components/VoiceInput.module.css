@@ -103,3 +103,28 @@
         opacity: 0;
     }
 }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        flex: 1;
+        min-width: 0;
+        /* Allow flex item to shrink below content size */
+    }
+
+    .inputWrapper {
+        padding: 0.4rem 0.8rem;
+    }
+
+    .input {
+        padding: 0.6rem;
+        font-size: 0.9rem;
+    }
+
+    .micButton {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+    }
+}
