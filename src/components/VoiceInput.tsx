@@ -79,15 +79,15 @@ export default function VoiceInput({ onCommand, isProcessing }: VoiceInputProps)
                     onKeyDown={handleKeyDown}
                     disabled={isProcessing}
                 />
-                <button
-                    className={`${styles.micButton} ${isListening ? styles.recording : ''}`}
-                    onClick={isListening ? toggleListening : (input ? handleSubmit : toggleListening)}
-                    disabled={isProcessing}
-                    title={input ? "Send Command" : "Start Listening"}
-                >
-                    {isProcessing ? '...' : (input && !isListening ? '➤' : '🎤')}
-                </button>
             </div>
+            <button
+                className={`${styles.micButton} ${isListening ? styles.recording : ''}`}
+                onClick={isListening ? toggleListening : (input ? handleSubmit : toggleListening)}
+                disabled={isProcessing}
+                title={input ? "Send Command" : "Start Listening"}
+            >
+                {isProcessing ? '...' : (input && !isListening ? '➤' : '🎤')}
+            </button>
             {isListening && <div className={styles.pulseRing}></div>}
         </div>
     );

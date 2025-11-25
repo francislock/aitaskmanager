@@ -3,7 +3,11 @@
     max-width: 600px;
     margin: 0;
     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
+
 
 .inputWrapper {
     display: flex;
@@ -20,6 +24,8 @@
     transition: all 0.3s ease;
     position: relative;
     z-index: 2;
+    flex: 1;
+    min-width: 0;
 }
 
 .inputWrapper:focus-within,
@@ -110,24 +116,23 @@
         max-width: 100%;
         flex: 1;
         min-width: 0;
-        /* Allow flex item to shrink below content size */
-    }
-
-    .inputWrapper {
-        padding: 0.3rem 0.5rem;
         gap: 0.5rem;
     }
 
+    .inputWrapper {
+        padding: 0.6rem 1rem;
+    }
+
     .input {
-        padding: 0.5rem;
+        padding: 0.4rem;
         font-size: 0.9rem;
     }
 
     .micButton {
-        width: 48px;
-        height: 48px;
-        min-width: 48px;
-        min-height: 48px;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
         font-size: 1.3rem;
         flex-shrink: 0;
     }
