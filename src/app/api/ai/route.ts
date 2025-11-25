@@ -26,7 +26,7 @@ export async function POST(req: NextRequest) {
         console.log("🚀 Initializing Gemini...");
         const genAI = new GoogleGenerativeAI(API_KEY);
         const model = genAI.getGenerativeModel({
-            model: "gemini-pro"
+            model: "gemini-1.5-flash"
         });
 
         // Build lists description for prompt
