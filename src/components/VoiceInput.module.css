@@ -114,11 +114,12 @@
     }
 
     .inputWrapper {
-        padding: 0.4rem 0.8rem;
+        padding: 0.3rem 0.5rem;
+        gap: 0.5rem;
     }
 
     .input {
-        padding: 0.6rem;
+        padding: 0.5rem;
         font-size: 0.9rem;
     }
 
@@ -127,7 +128,7 @@
         height: 48px;
         min-width: 48px;
         min-height: 48px;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         flex-shrink: 0;
     }
 }
